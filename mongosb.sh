@@ -8,11 +8,12 @@ LOGFILE="/tmp/$0-$TIMESTAMPE.log"
 echo "script   started executing at $TIMESTAMP" &>> $LOGFILE
 
 VALIDATE(){
+
     if [$1 -ne 0] 
     then
-        echo -e "FAIELD"
+        echo -e " $2 FAIELD"
     else
-        echo -e "SUCCESS"
+        echo -e " $2 SUCCESS"
     fi
 }
 
@@ -27,4 +28,13 @@ fi
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
 VALIDATE $? "Copy mongo db repo"
+
+dnf install mongodb-org -y &>> $LOGFILE
+
+VALIDATE $? "installing mongodb"
+
+
+
+
+
 
