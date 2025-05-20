@@ -2,7 +2,7 @@
 
 ID=$(id -u)
 
-MONGDB_HOST=mongodb.tejanamana.shop
+CATALOGUE_HOST=catalogue.tejanamana.shop
 TIMESTAMPE=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMPE.log"
 
@@ -89,6 +89,6 @@ dnf install mongodb-org-shell -y
 
 VALIDATE $? "instaling mongo db shell clien"
 
-mongo --host $MONGDB_HOST </app/schema/catalogue.js
+mongo --host $CATALOGUE_HOST </app/schema/catalogue.js
 
 VALIDATE $? "LOADING CATALOGUE DATE INTO MAGO DB"
