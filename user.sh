@@ -50,7 +50,15 @@ VALIDATE $? "crating app directory"
 curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip
 
 VALIDATE $? " downloaling application "
-
+ 
 cd /app
 
+unzip /tmp/user.zip
 
+VALIDATE $? "un zipping app directory"
+
+npm install 
+
+VALIDATE $? "installing"
+
+cp /home/ec2/roboshop-shell/user.service/etc/systemd/system/user.service
